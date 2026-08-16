@@ -1,0 +1,27 @@
+project: proof-spring-boot
+
+
+estates:
+  proof-spring-boot:
+    hostname: proof-spring-boot.getecosphere.com
+    ingress: tunnel
+    cloudflare_account: getecosphere
+    services:
+      - proof-spring-boot
+      - auth-backend
+
+
+services:
+  proof-spring-boot:
+    path: .
+    runtimes:
+      - java@17
+      - maven
+
+  auth-backend:
+    lxs: auth@1.0.0
+
+auth:
+  email_verification:
+    enabled: false
+  enabled: true
